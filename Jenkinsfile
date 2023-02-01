@@ -16,8 +16,12 @@ pipeline {
         
         stage('Build'){
             steps{
-                sh ''' kubectl create -f k8s/app1/guess_my_number_deploy.yaml
-                       kubectl create -f k8s/app1/guess_my_number_service.yaml '''
+                sh ''' 
+                       kubectl delete -f k8s/app1/guess_my_number_deploy.yaml
+                       kubectl delete -f k8s/app1/guess_my_number_service.yaml
+                       kubectl create -f k8s/app1/guess_my_number_deploy.yaml
+                       kubectl create -f k8s/app1/guess_my_number_service.yaml
+                        '''
             }
         }
         
