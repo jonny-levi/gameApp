@@ -7,8 +7,9 @@ pipeline {
     stages{
         stage('Fetch'){
             steps{
-                git 'https://github.com/jonny-levi/k8s.git'
-                sh 'cd k8s'
+              sh ''' git clone https://github.com/jonny-levi/k8s.git
+                    cd k8s
+                '''
             }
         }
         
